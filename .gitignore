@@ -1,0 +1,8 @@
+# Node.js
+node_modules/
+
+# Generated SVG files
+*.svg
+
+# Visual Studio Code
+.vscode/
