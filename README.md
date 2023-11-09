@@ -145,3 +145,27 @@ You are required to submit the following for review:
 ---
 © 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
 
+
+
+
+## Installation
+
+To get started with the project and set up the tests using Jest, follow these steps:
+
+- Clone the repository:
+  git clone:
+
+- Navigate to the project directory
+
+- Install the project dependencies:
+  npm install
+
+- Set up Jest for testing:
+  - Install the necessary dependencies:
+    npm install --save-dev jest @babel/preset-env @babel/preset-modules babel-jest
+    npm install --save-dev mock-inquirer
+
+- Run the tests:
+  npm test
+
+This will run the tests using Jest and display the test results in the console.

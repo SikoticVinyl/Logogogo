@@ -1,26 +1,29 @@
-const inquirer = require('inquirer');
-const index = require('index.js')
+const { usersInput } = require('./index.js');
+const mockInquirer = require('mock-inquirer').default;
 
-// Mock inquirer's `prompt` method to return predefined user input for testing
-jest.mock('inquirer');
+describe('usersInput Function', () => {
+  it('should handle user input correctly', async () => {
+    // Mock user input for inquirer.prompt
+    mockInquirer.prompt.mockResolvedValue({
+      text: 'ABC',
+      textColor: 'blue',
+      shape: 'circle',
+      shapeColor: 'green',
+    });
 
-describe('Main Function', () => {
-    it('should handle user input correctly', async () => {
-      // Mock user input for inquirer.prompt
-      inquirer.prompt.mockResolvedValue({
-        text: 'ABC',
-        textColor: 'blue',
-        shape: 'circle',
-        shapeColor: 'green',
-      });
-
-       // You can also spy on the console.log method to check what's being printed
+    //spy on the console.log method to check what's being printed
     const consoleLogSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
 
     // Call your main function
-    await main();
-    
-    expect(consoleLogSpy).toHaveBeenCalledWith('Some expected output');
+    const result = await usersInput();
+
+    // Assert that the result matches the expected user input
+    expect(result).toEqual({
+      text: 'ABC',
+      textColor: 'blue',
+      shape: 'circle',
+      shapeColor: 'green',
+    });
 
     // Clean up the consoleLogSpy
     consoleLogSpy.mockRestore();
