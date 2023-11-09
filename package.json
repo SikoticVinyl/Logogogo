@@ -15,5 +15,10 @@
   "keywords": [],
   "dependencies": {
     "inquirer": "^9.2.12"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^24.9.0"
   }
 }
