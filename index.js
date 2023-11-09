@@ -26,5 +26,10 @@ async function main() {
           message: 'Enter shape color (e.g., green or #2ecc71):',
         },
       ]);
-    }
-};
+    } catch (error) {
+      console.error('An error occurred:', error);
+  }
+}
+
+// Call the main function to start the program
+main();
