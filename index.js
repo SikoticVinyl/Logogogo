@@ -1,4 +1,5 @@
 const inquirer = require('inquirer')
+const { Circle, Triangle, Square } = require('./lib/shapes');
 
 async function usersInput() {
   try {
@@ -28,6 +29,13 @@ async function usersInput() {
   } catch (error) {
     console.error('An error occurred:', error);
   }
+}
+
+let shapeInstance;
+
+switch (userInput.shape) {
+  case 'circle':
+    shapeInstance = new Circle
 }
 
 module.exports = {
