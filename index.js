@@ -34,5 +34,4 @@ module.exports = {
   usersInput,
 };
 
-// Call the main function to start the program
 usersInput();
