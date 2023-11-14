@@ -48,11 +48,22 @@ switch (userInput.shape) {
   shapeInstance.setTextColor(userInput.textColor);
   shapeInstance.setShapeColor(userInput.shapeColor);
 
-  console.log(shapeInstance.render());
+  const svgContent = shapeInstance.render();
+  
+  //Writing SVG Conteent to a file.
+  const fs = require('fs');
+  const examplesFolderPath = './examples/';
+
+  fs.writeFile(examplesFolderPath+'logo.svg', svgContent, (err) => {
+    if (err) {
+      console.error('Error writing file:', err);
+      return;
+    }
+    console.log('Generated logo.svg');
+  });
   } catch (error) {
     console.error('An error occurred:', error);
-  }
-}
+}}
 
 module.exports = {
   usersInput,
