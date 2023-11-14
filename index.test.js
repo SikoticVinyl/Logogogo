@@ -1,31 +1,13 @@
-const { usersInput } = require('./index.js');
-const mockInquirer = require('mock-inquirer').default;
 
-describe('usersInput Function', () => {
-  it('should handle user input correctly', async () => {
-    // Mock user input for inquirer.prompt
-    mockInquirer.prompt.mockResolvedValue({
-      text: 'ABC',
-      textColor: 'blue',
-      shape: 'circle',
-      shapeColor: 'green',
-    });
 
-    //spy on the console.log method to check what's being printed
-    const consoleLogSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
+const shape = new Triangle();
+shape.setShapeColor("blue");
+expect(shape.render()).toEqual('<polygon points="150, 18 244, 182 56, 182" fill="blue" />');
 
-    // Call your main function
-    const result = await usersInput();
+const square = new Square();
+square.setShapeColor("red");
+expect(square.render()).toEqual('<rect width="200" height="200" fill="red" />');
 
-    // Assert that the result matches the expected user input
-    expect(result).toEqual({
-      text: 'ABC',
-      textColor: 'blue',
-      shape: 'circle',
-      shapeColor: 'green',
-    });
-
-    // Clean up the consoleLogSpy
-    consoleLogSpy.mockRestore();
-  });
-});
+const circle = new Circle();
+circle.setShapeColor("green");
+expect(circle.render()).toEqual('<circle cx="100" cy="100" r="100" fill="green" />');
