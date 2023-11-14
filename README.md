@@ -46,7 +46,7 @@ To generate an SVG image:
 
 3. An SVG file will be generated in the examples folder with the specified parameters. Its name should match the text you entered.
 
-Here is a video walk through on how to use this application: <>
+Here is a video walk through on how to use this application: <https://youtu.be/XUeJ3j5iAZU>
 
 ## Tests
 Logogogo uses Jest for testing. To run the tests:
