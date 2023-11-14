@@ -1,171 +1,62 @@
-Your task is to build a Node.js command-line application that takes in user input to generate a logo and save it as an [SVG file](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics). The application prompts the user to select a color and shape, provide text for the logo, and save the generated SVG to a `.svg` file.
+# Logogogo
 
-Because this application won’t be deployed, you’ll need to provide a link to a walkthrough video that demonstrates its functionality and passes all of the tests. You’ll need to submit a link to the video **and** add it to the README of your project.
+Logogogo is a Node.js command-line application that generates SVG images of various shapes with customized text and colors.
 
-### User Story
+## Description
+Logogogo provides an intuitive way to create simple logos using SVG shapes like circles, triangles, and squares. Users can customize the text content, font colors, as well as the shape and its color for logo generation.
 
-```md
-AS a freelance web developer
-I WANT to generate a simple logo for my projects
-SO THAT I don't have to pay a graphic designer
-```
+This project was a great oppertunity to get in and do some object oriented programming and getting to learn and use classes and inheritance properly. It had some good refreshing touch ups on using node.js with inquirer to capture user input and generate the svg file. 
 
-## Acceptance Criteria
-
-```md
-GIVEN a command-line application that accepts user input
-WHEN I am prompted for text
-THEN I can enter up to three characters
-WHEN I am prompted for the text color
-THEN I can enter a color keyword (OR a hexadecimal number)
-WHEN I am prompted for a shape
-THEN I am presented with a list of shapes to choose from: circle, triangle, and square
-WHEN I am prompted for the shape's color
-THEN I can enter a color keyword (OR a hexadecimal number)
-WHEN I have entered input for all the prompts
-THEN an SVG file is created named `logo.svg`
-AND the output text "Generated logo.svg" is printed in the command line
-WHEN I open the `logo.svg` file in a browser
-THEN I am shown a 300x200 pixel image that matches the criteria I entered
-```
-
-## Mock-Up
-
-The following image shows a mock-up of the generated SVG given the following input entered by the user: `SVG` for the text, `white` for the text color, `circle` from the list of shapes, and `green` for the shape color. Note that this is just an image of the output SVG and not the SVG file itself:
-(See readme in school repo for image)
-
-## Additional Requirements
-
-This Challenge combines many of the skills covered so far. In addition to the User Story and Acceptance Criteria, we’ve provided some guidelines to help you get started.
-
-Your application should use [Jest](https://www.npmjs.com/package/jest) for running the unit tests and [Inquirer](https://www.npmjs.com/package/inquirer/v/8.2.4) for collecting input from the user. The application will be invoked by using the following command:
-
-```bash
-node index.js
-```
-
-It is recommended that you start with a directory structure that looks like the following example:
-
-```md
-.  
-├── examples/           // Example svg file(s) created with the app
-├── lib/                // Folder for classes or functions
-    ├── shapes.js       // Exports `Triangle`, `Circle`, and `Square` classes
-    ├── shapes.test.js  // Jest tests for shapes
-    └── more...         // Additional files and tests
-├── .gitignore          // Indicates which folders and files Git should ignore
-├── index.js            // Runs the application using imports from lib/
-├── package.json
-└── README.md           // App description, link to video, setup and usage instructions           
-```
-
-> **Important**: Make sure that you remove `dist` from the `.gitignore` file so that Git will track this folder and include it when you push up to your application's repository.
-The application must include `Triangle`, `Circle`, and `Square` classes, as well as tests for each of these classes using Jest. While not a requirement, it is recommended that you place any common functionality and properties shared by the `Triangle`, `Circle`, and `Square` classes in a parent `Shape` class and use inheritance to reuse the code in the child classes.
-
-Each shape class should be tested for a `render()` method that returns a string for the corresponding SVG file with the given shape color.
-
-The following example test should pass:
-
-```js
-const shape = new Triangle();
-shape.setColor("blue");
-expect(shape.render()).toEqual('<polygon points="150, 18 244, 182 56, 182" fill="blue" />');
-```
-
-You may need to add additional files in the `lib` folder for handling user input, writing to a file, etc. Writing tests for these additional files is **optional**.
-
-## Helpful SVG Resources
-
-* [Example SVG](https://static.fullstack-bootcamp.com/fullstack-ground/module-10/circle.svg)
-
-* [Scalable Vector Graphics (SVG)](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics)
-
-* [SVG tutorial](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial)
-
-* [Basic SVG shapes](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes)
-
-* [Text in SVG](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Texts)
-
-* [SVG VS Code extension](https://marketplace.visualstudio.com/items?itemName=jock.svg)
-
-## Requirements
-
-### Deliverables: 15%
-
-* At least one sample SVG file generated using the application must be submitted.
-
-* Your GitHub repository containing your application code.
-
-### Walkthrough Video: 32%
-
-* A walkthrough video that demonstrates the functionality of the SVG logo maker and passing tests must be submitted.
-
-* The `README.md` file must include a link to the walkthrough video.
-
-* The walkthrough video must show all tests passing from the command line.
-
-* The walkthrough video must demonstrate how a user would invoke the application from the command line.
-
-* The walkthrough video must demonstrate how a user would enter responses to all of the prompts in the application.
-
-* The walkthrough video must demonstrate a generated SVG file, showing the file being opened in the browser. The image in the browser must reflect the choices made by the user (text, shape, and colors).
-
-### Technical Acceptance Criteria: 40%
-
-* Satisfies all of the preceding acceptance criteria plus the following:
-
-  * Uses the [Inquirer package](https://www.npmjs.com/package/inquirer/v/8.2.4).
-
-  * Uses the [Jest package](https://www.npmjs.com/package/jest) for a suite of unit tests.
-
-  * The application must have `Triangle`, `Square`, and `Circle` classes.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains a high-quality readme with description and a link to a walkthrough video.
-
-## Review
-
-You are required to submit the following for review:
-
-* A walkthrough video that demonstrates the functionality of the application and passing tests.
-
-* At least one sample SVG file generated using your application.
-
-* The URL of the GitHub repository, with a unique name and a README describing the project.
-
----
-© 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+I also learned a lot about SVG files, what they are and how they work and are generated. Honestly the hardest part for me was trying to get my jest test created before the rest of the project - so much so that I eventually for time and less stress built the application out and the tests at the end. Having written the tests now I feel I have a better understanding to be able to try tests first on my next project.
 
 
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [Tests](#tests)
+- [Contributing](#contributing)
+- [Questions](#questions)
 
+## Repository
+Find the project repository here: <https://github.com/SikoticVinyl/Logogogo>
 
 ## Installation
 
-To get started with the project and set up the tests using Jest, follow these steps:
+1. Clone the repository:
 
-- Clone the repository:
-  git clone:
+   ```bash
+   git clone <https://github.com/SikoticVinyl/Logogogo.git>
+   cd logogogo
+   npm install
+   ```
 
-- Navigate to the project directory
+## Usage
 
-- Install the project dependencies:
-  npm install
+To generate an SVG image:
 
-- Set up Jest for testing:
-  - Install the necessary dependencies:
-    npm install --save-dev jest @babel/preset-env @babel/preset-modules babel-jest
-    npm install --save-dev mock-inquirer
+1. Run the application:
+  ```bash
+   node index.js
+   ```
 
-- Run the tests:
-  npm test
+2. Follow the prompts:
+ - Enter text (up to three characters), specify text color (e.g., blue or #3498db).
+ - Select a shape (circle, triangle, or square).
+ - Choose the shape color (e.g., green or #2ecc71).
 
-This will run the tests using Jest and display the test results in the console.
+3. An SVG file will be generated in the examples folder with the specified parameters. Its name should match the text you entered.
+
+Here is a video walk through on how to use this application: <https://youtu.be/XUeJ3j5iAZU>
+
+## Tests
+Logogogo uses Jest for testing. To run the tests:
+
+```bash
+npm test
+```
+
+## Contributing
+Contributions are welcome! If you have any ideas, enhancements, or bug fixes, feel free to fork the repository and submit a pull request.
+
+## Questions
+You can reach out to me at DanaRFulmer@yahoo.com or visit my [GitHub profile](https://github.com/SikoticVinyl). Additionally, please open an issue on GitHub for any questions, suggestions, or bug reports.
