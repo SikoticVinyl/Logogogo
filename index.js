@@ -1,3 +1,4 @@
+const fs = require('fs');
 const inquirer = require('inquirer')
 const { Circle, Triangle, Square } = require('./lib/shapes');
 
@@ -48,11 +49,22 @@ switch (userInput.shape) {
   shapeInstance.setTextColor(userInput.textColor);
   shapeInstance.setShapeColor(userInput.shapeColor);
 
-  console.log(shapeInstance.render());
+  const svgContent = shapeInstance.render();
+  
+  //Writing SVG Content to a file.
+  const fileName = userInput.text || 'defaultFileName'
+  const examplesFolderPath = './examples/';
+
+  fs.writeFile(examplesFolderPath+`${fileName}.svg`, svgContent, (err) => {
+    if (err) {
+      console.error('Error writing file:', err);
+      return;
+    }
+    console.log(`Generated ${fileName}.svg`);
+  });
   } catch (error) {
     console.error('An error occurred:', error);
-  }
-}
+}}
 
 module.exports = {
   usersInput,
